@@ -1,29 +1,32 @@
 #include <iostream>
 #include <cmath>
 
-// 5 - WA
-
 int main()
 {
-    int a, b, c, cnt = 0;
+    int a, b, c;
     std::cin >> a >> b >> c;
-    if (a == 0 && sqrt(b) == c)
+    if (c < 0)
+    {
+        std::cout << "NO SOLUTION";
+        return 0;
+    }
+    else if ((a + b) == c * c && (2 * a + b) == c * c)
     {
         std::cout << "MANY SOLUTIONS";
         return 0;
     }
-    for (float x = 0; x <= c * c * c; ++x)
+    else
     {
-        if (sqrt(a * x + b) == c && x == int(x))
+        if (a != 0 && (c * c - b) / a == (c * c - b))
         {
-            std::cout << x << " ";
-            cnt++;
+            std::cout << (c * c - b);
+            return 0;
         }
-    }
-    if (cnt == 0)
-    {
-        std::cout << "NO SOLUTION";
-        return 0;
+        else
+        {
+            std::cout << "NO SOLUTION";
+            return 0;
+        }
     }
     return 0;
 }
